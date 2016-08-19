@@ -1,0 +1,33 @@
+{
+  "name": "ride_along",
+  "version": "0.0.1",
+  "description": "Simple car pooling app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaCl4Ever/Ride-Along.git"
+  },
+  "keywords": [
+    "ride",
+    "along",
+    "node",
+    "mean",
+    "angular"
+  ],
+  "author": "Jordan A Pectyo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NaCl4Ever/Ride-Along/issues"
+  },
+  "homepage": "https://github.com/NaCl4Ever/Ride-Along#readme",
+  "dependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-react": "^6.11.1",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
+  }
+}

@@ -1,0 +1,36 @@
+<!DDOCTYPE HTML>
+<html lang="en">
+<head>
+<% include ../partials/head %>
+<title>Catch a Ride!</title>
+</head>
+<body>
+<script>
+	$(document).ready(function(){
+		$('.ui.dropdown').dropdown();
+	});
+</script>
+<% include ../partials/navbar %>
+<script type="text/babel">
+	
+var CommentBox = React.createClass({displayName: 'CommentBox',
+  render: function() {
+    return (
+      React.createElement('div', {className: "commentBox"},
+        "Hello, world! I am a CommentBox."
+      )
+    );
+  }
+});
+ReactDOM.render(
+  React.createElement(CommentBox, null),
+  document.getElementById('content')
+  
+);
+</script>
+<div id="content"></div>
+
+
+	
+</body>
+</html>
