@@ -1,4 +1,4 @@
-<!DDOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
 <% include ../partials/head %>
@@ -8,27 +8,62 @@
 <script>
 	$(document).ready(function(){
 		$('.ui.dropdown').dropdown();
+    $('.ui.accordion').accordion();
 	});
 </script>
 <% include ../partials/navbar %>
 <script type="text/babel">
-	
-var CommentBox = React.createClass({displayName: 'CommentBox',
+var sampleCards = [
+{title: "Our Mission"
+  ,message: "We want to provide an easy way to share rides, and go on adventures. Everyone wants to get there, but sometimes they don't have the wheels to get there."
+  , imageUrl: "https://i.ytimg.com/vi/dw_NikESmgY/maxresdefault.jpg"
+  , target:"/home"}
+,{title: "Get Started"
+  ,message: "I want to get you in this ride, and all I need is to get you an account. Follow the link to sign up today. "
+  , imageUrl: "https://knowsus.org/wp-content/uploads/2015/06/join-us.jpg"
+  , target:"/signUp"}
+,{title: "How Does It Work?"
+  ,message: "It might not all make sense, but this should clear things up. "
+  , imageUrl: "http://www.bitrebels.com/wp-content/uploads/2012/05/Geek-Is-Confused-In-Class.jpg"
+  , target:"/help"}
+]
+var IntroCards = React.createClass({
   render: function() {
+    var cards = this.props.data.map(function(card, i){
+      return(
+        <div className = 'ui card' key = {i}>
+          <div className = 'image'>
+             <img className="ui medium bordered image" src= {card.imageUrl}/> 
+          </div>
+          <div className= 'content'>
+            <h3>{card.title}</h3>
+            {card.message}
+            <div className="ui animated button" tabIndex="0">
+              <div className="visible content">Follow here!</div>
+              <div className="hidden content">
+                <a href={card.target}><i className="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        );
+    });
     return (
-      React.createElement('div', {className: "commentBox"},
-        "Hello, world! I am a CommentBox."
-      )
+      <div className = "ui cards">
+      {cards}
+      </div>
     );
   }
 });
 ReactDOM.render(
-  React.createElement(CommentBox, null),
+  <IntroCards data={sampleCards}/>,
   document.getElementById('content')
   
 );
 </script>
 <div id="content"></div>
+
 
 
 	

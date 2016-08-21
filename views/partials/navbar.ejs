@@ -1,20 +1,57 @@
-<div class="ui inverted menu">
+<script>
+$(document).ready(function(){
+    $("#navMaster div").on("click", ".account", function(){
+      console.log("An item has been clicked");
+      console.log("Items Contents "  + $(this).text());
+      $('.ui.sidebar').sidebar('toggle');
+    });
+  });
+</script>
+<div id = "navMaster" class="ui inverted menu">
   <div class="header item"> <i class = "fa fa-taxi">  </i> <a href ="/home">Ride Along </a> </div>
   <div class="active item">Schedule A Ride</div>
   <div class="item"><a href ="/about">About</a></div>
   <div class="item"><a href ="/help">Help</a></div>
  
   <div class="right menu">
-    <div class="ui dropdown item" tabindex="0">
+    <div class="ui  item account" tabindex="0">
       Account
        <i class="fa fa-bars"></i>
-      <div class="menu" tabindex="-1">
-        <div class="item" ><a href ="/account">Manage Account</a></div>
-        <div class="item">Current Vehicles</div>
-        <div class="item">Past Rides</div>
-        <div class="divider"></div>
-        <div class="item">Sign Out</div>
-      </div>
+      
     </div>
   </div>
 </div>
+<div id = "sideNav"></div>
+
+  <script type="text/babel">
+var cars = ["Honda Fit", "Ford Escape"];
+var test =[1,2,3,4,5];
+var SideBar = React.createClass({
+  render: function() {
+    var vehicles = this.props.data.map(function(vehicle, i){
+      return(
+        <h4 key ={i}>{vehicle}</h4>
+        );
+    });
+    return (
+      <div className = "ui sidebar inverted vertical menu">
+        <h3 className = "ui blue header">Jordan Pectyo </h3>
+        <div className = "ui styled accordion">
+        <div className = "title">
+            <i className="dropdown icon"></i>
+            Vehicles
+        </div>
+         <div className="content">
+          {vehicles}
+          </div>
+        </div>
+      </div>
+    );
+  }
+});
+ReactDOM.render(
+  <SideBar data={cars}/>,
+  document.getElementById('sideNav')
+  
+);
+</script>
