@@ -17,20 +17,39 @@ var sampleCards = [
 {title: "Our Mission"
   ,message: "We want to provide an easy way to share rides, and go on adventures. Everyone wants to get there, but sometimes they don't have the wheels to get there."
   , imageUrl: "https://i.ytimg.com/vi/dw_NikESmgY/maxresdefault.jpg"
-  , target:"/home"}
+  }
 ,{title: "Get Started"
   ,message: "I want to get you in this ride, and all I need is to get you an account. Follow the link to sign up today. "
   , imageUrl: "https://knowsus.org/wp-content/uploads/2015/06/join-us.jpg"
-  , target:"/signUp"}
+  , target:"/signUp"
+  , linkText: "Hop in!"}
 ,{title: "How Does It Work?"
   ,message: "It might not all make sense, but this should clear things up. "
   , imageUrl: "http://www.bitrebels.com/wp-content/uploads/2012/05/Geek-Is-Confused-In-Class.jpg"
-  , target:"/help"}
+  , target:"/help"
+  ,linkText: "Learn More."}
 ]
+
 var IntroCards = React.createClass({
   render: function() {
     var cards = this.props.data.map(function(card, i){
-      return(
+      var linkText = "", linkTarget = "", hasLink = false;
+      var extra;
+      if(card.hasOwnProperty('linkText'))
+      {
+          hasLink = true;
+          linkText = card.linkText;
+          linkTarget = card.target;
+          var extra = <div className = 'extra content' >
+            <div className="ui animated button" tabIndex="0">
+                <div className="visible content">{card.linkText}</div>
+                <div className="hidden content">
+                  <a href={card.target}><i className="fa fa-angle-right"></i></a>
+                </div>
+              </div>
+          </div>
+      }
+    return(
         <div className = 'ui card' key = {i}>
           <div className = 'image'>
              <img className="ui medium bordered image" src= {card.imageUrl}/> 
@@ -38,17 +57,13 @@ var IntroCards = React.createClass({
           <div className= 'content'>
             <h3>{card.title}</h3>
             {card.message}
-            <div className="ui animated button" tabIndex="0">
-              <div className="visible content">Follow here!</div>
-              <div className="hidden content">
-                <a href={card.target}><i className="fa fa-angle-right"></i></a>
-              </div>
-            </div>
           </div>
-
+          {extra}
+         
         </div>
         );
     });
+
     return (
       <div className = "ui cards">
       {cards}

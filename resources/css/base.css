@@ -1,0 +1,9 @@
+body {
+  font: Helvetica; }
+
+#accountSideBar .header {
+  margin-top: 1em;
+  background-color: white;
+  font-color: black;
+  text-align: center;
+  border-radius: 1em; }

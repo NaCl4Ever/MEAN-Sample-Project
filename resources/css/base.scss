@@ -1,0 +1,20 @@
+$font-stack: Helvetica;
+$font-color: white;
+
+
+body{
+	font: $font-stack;
+}
+
+#accountSideBar  {
+	
+	.header{
+		margin-top: 1em;	
+		background-color: white;
+		font-color: black;
+		text-align: center;
+		border-radius: 1em;
+	}
+	
+
+}

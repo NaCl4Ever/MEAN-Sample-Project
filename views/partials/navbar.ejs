@@ -1,25 +1,16 @@
 <script>
 $(document).ready(function(){
-    $("#navMaster div").on("click", ".account", function(){
-      console.log("An item has been clicked");
-      console.log("Items Contents "  + $(this).text());
+    $("#navMaster").on("click", ".account", function(){
       $('.ui.sidebar').sidebar('toggle');
     });
   });
 </script>
 <div id = "navMaster" class="ui inverted menu">
   <div class="header item"> <i class = "fa fa-taxi">  </i> <a href ="/home">Ride Along </a> </div>
+  <div class="ui item account" tabindex="0">Account</div>
   <div class="active item">Schedule A Ride</div>
   <div class="item"><a href ="/about">About</a></div>
   <div class="item"><a href ="/help">Help</a></div>
- 
-  <div class="right menu">
-    <div class="ui  item account" tabindex="0">
-      Account
-       <i class="fa fa-bars"></i>
-      
-    </div>
-  </div>
 </div>
 <div id = "sideNav"></div>
 
@@ -34,8 +25,8 @@ var SideBar = React.createClass({
         );
     });
     return (
-      <div className = "ui sidebar inverted vertical menu">
-        <h3 className = "ui blue header">Jordan Pectyo </h3>
+      <div  id = "accountSideBar" className = "ui sidebar inverted vertical menu">
+        <h3 className = "ui header">Hi, Jordan! </h3>
         <div className = "ui styled accordion">
         <div className = "title">
             <i className="dropdown icon"></i>
